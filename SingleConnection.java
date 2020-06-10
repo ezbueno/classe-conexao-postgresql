@@ -1,15 +1,11 @@
 package connection;
 
-/**
- * Responsável por fazer a conexão com o banco de dados
- */
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class SingleConnection {
-
-	private static String url = "jdbc:postgresql://localhost:5432/curso-jsp?autoReconnect=true";
+	
+	private static String url = "jdbc:postgresql://localhost:5432/curso-jsp-json-ajax?autoReconnect=true";;
 	private static String user = "postgres";
 	private static String password = "admin";
 	private static Connection connection = null;
@@ -17,7 +13,7 @@ public class SingleConnection {
 	static {
 		conectar();
 	}
-
+	
 	public SingleConnection() {
 		conectar();
 	}
@@ -31,12 +27,11 @@ public class SingleConnection {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new RuntimeException("Erro ao conectar no banco de dados");
+			throw new RuntimeException("Erro ao conectar no banco de dados!");
 		}
 	}
 	
 	public static Connection getConnection() {
 		return connection;
 	}
-	
 }
